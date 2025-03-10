@@ -26,7 +26,7 @@ struct ContentView: View {
                     Image(systemName: "building.columns")
                         .padding(4)
                         .foregroundColor(.white)
-                        .background(.indigo)
+                        .background(.cyan)
                         .cornerRadius(4)
                 })
             }
