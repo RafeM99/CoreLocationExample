@@ -1,5 +1,5 @@
 //
-//  LocationManager2.swift
+//  LocationManager.swift
 //  CoreLocationExample
 //
 //  Created by Rafe Marriott on 12/03/2025.
@@ -9,7 +9,7 @@ import SwiftUI
 import CoreLocation
 
 @Observable
-class LocationManager2: NSObject, CLLocationManagerDelegate {
+class LocationManager: NSObject, CLLocationManagerDelegate {
     @ObservationIgnored let manager = CLLocationManager()
     
     var userLocation: CLLocation?
