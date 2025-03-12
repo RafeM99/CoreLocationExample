@@ -10,13 +10,11 @@ import MapKit
 import SwiftData
 
 struct ContentView: View {
-    // call your location Manager
-    @State private var locationDataManager = LocationManager()
+    @Environment(LocationManager.self) var locationManager
+
     @State private var showingSheet: Bool = false
-    
-    let manager = CLLocationManager()
+
     @State private var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
-    @Query private var listPlacemarks: [MKPlacemark]
     
     var body: some View {
         
@@ -34,9 +32,6 @@ struct ContentView: View {
             }
             .mapControls {
                 MapUserLocationButton()
-            }
-            .onAppear {
-                manager.requestWhenInUseAuthorization()
             }
             
             Button(action: {
@@ -62,4 +57,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(LocationManager())
 }

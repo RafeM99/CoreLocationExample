@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct CoreLocationExampleApp: App {
+    @State private var locationManger = LocationManager()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if locationManger.isAuthorised {
+                ContentView()
+            } else {
+                Text("Need to help user")
+            }
+            
         }
+        .environment(locationManger)
     }
 }
